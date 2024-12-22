@@ -1,86 +1,103 @@
-/* src/pages/Home.css */
-
 .home-container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 80vh;
     padding: 2rem;
-    color: #333333;
-    background-image: url("../assets/blurcoffee.jpg"); /* Use a relative path */
+    color: #ffffff;
+    background-image: url("../assets/blurcoffee.jpg"); /* Full page background */
     background-size: cover;
     background-position: center;
-  }
-  
-  .home-content {
-    text-align: center;
+}
+
+.home-content {
+    position: relative;
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
-    padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
-  }
-  
-  .home-title {
-    font-size: 2.5rem;
-    color: #6f4e37; /* Coffee brown color */
-    margin-bottom: 1rem;
-  }
-  
-  .home-description {
-    font-size: 1.2rem;
-    color: #333333;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  
-  .home-image {
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 400px; /* Fixed height for the card */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    width: 150px;
-    height: auto;
+    background-image: url("../assets/machine.jpeg"); /* Background image for the card */
+    background-size: cover;
+    background-position: center;
+}
+
+.home-content-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    color: #ffffff; /* Light text color */
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Merriweather', serif;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 1rem;
     animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes float {
+}
+
+@keyframes float {
     0% {
-      transform: translatey(0px);
+        transform: translatey(0px);
     }
     50% {
-      transform: translatey(-20px);
+        transform: translatey(-10px);
     }
     100% {
-      transform: translatey(0px);
+        transform: translatey(0px);
     }
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .home-title {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
+
     .home-description {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     .home-image {
-      width: 120px;
+        width: 80px;
+        height: 80px;
     }
-  }
-  
-  @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
     .home-title {
-      font-size: 1.5rem;
+        font-size: 1.5rem;
     }
-  
+
     .home-description {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .home-image {
-      width: 100px;
+        width: 60px;
+        height: 60px;
     }
-  }
+}

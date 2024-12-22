@@ -1,76 +1,95 @@
-/* src/pages/Menu.css */
-
 .menu-container {
     padding: 2rem;
-    background-image: url("../assets/blurcoffee.jpg"); /* Use a relative path */
+    background-image: url("../assets/blurcoffee.jpg");
     background-size: cover;
     background-position: center;
     min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .menu-title {
+}
+
+.menu-title {
     font-size: 2.5rem;
-    color: #6f4e37; /* Coffee brown color */
+    color: #6f4e37;
     margin-bottom: 2rem;
     text-align: center;
-  }
-  
-  .menu-items {
+    font-family: 'Merriweather', serif;
+}
+
+.menu-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     width: 100%;
     max-width: 1200px;
-  }
-  
-  .menu-item {
-    background-color: #ffffff;
+}
+
+.menu-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
-    padding: 1.5rem;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item-overlay {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+    color: #ffffff;
+    padding: 1rem;
     text-align: center;
-  }
-  
-  .menu-item-name {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.menu-item-name {
     font-size: 1.5rem;
-    color: #333333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .menu-item-description {
-    font-size: 1rem;
-    color: #666666;
-    margin-bottom: 0.5rem;
-  }
-  
-  .menu-item-price {
-    font-size: 1.2rem;
-    color: #6f4e37;
     font-weight: bold;
-  }
-  
-  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
+    font-family: 'Merriweather', serif;
+}
+
+.menu-item-description {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.menu-item-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .menu-title {
-      font-size: 2rem;
+        font-size: 2rem;
     }
-  
+
     .menu-item {
-      padding: 1rem;
+        height: 200px;
     }
-  
+
     .menu-item-name {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
-  
+
     .menu-item-description {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
+
     .menu-item-price {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  }
-  
+}
