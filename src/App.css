@@ -1,0 +1,184 @@
+/* Root Variables for Consistent Theming */
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Color Scheme */
+  --text-color: rgba(255, 255, 255, 0.87);
+  --background-color: rgba(36, 36, 36, 0.95); /* Slightly increased opacity for better contrast */
+  --card-background-color: #1a1a1a;
+  --primary-color: #646cff;
+  --primary-hover: #535bf2;
+  --secondary-color: #535bf2;
+  --secondary-hover: #4444e2;
+
+  /* Input Colors */
+  --input-bg: #242424;
+  --input-border: #646cff;
+
+  /* Spacing */
+  --section-padding: 2rem;
+  --card-padding: 1.5rem;
+  --button-padding: 0.8rem 1rem;
+
+  /* Font Sizes */
+  --title-font-size: 2.5rem;
+  --subtitle-font-size: 1.2rem;
+  --card-title-font-size: 1.5rem;
+  --card-price-font-size: 1.2rem;
+  --feature-font-size: 0.95rem;
+  --button-font-size: 1rem;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+}
+
+/* Reset and Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS Safari */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Main container */
+.main-container {
+  padding: var(--section-padding);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header__title {
+  font-size: var(--title-font-size);
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-family: 'Bebas Neue', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.header__subtitle {
+  font-size: var(--subtitle-font-size);
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-color);
+  font-family: 'Bebas Neue', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 3rem;
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch; /* Ensures all cards stretch to the same height */
+}
+
+/* Individual card */
+.card {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  padding: var(--card-padding);
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 300px; /* Allows cards to grow and shrink, maintaining uniformity */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card content */
+.card__content {
+  flex-grow: 1; /* Ensures content area takes up available space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card title */
+.card__title {
+  font-size: var(--card-title-font-size);
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: 'Bebas Neue', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Card price */
+.card__price {
+  font-size: var(--card-price-font-size);
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Responsive Styles */
+
+/* Small Devices (Phones, 576px and down) */
+@media (max-width: var(--breakpoint-sm)) {
+  :root {
+    --title-font-size: 2rem;
+    --subtitle-font-size: 1rem;
+    --card-title-font-size: 1.3rem;
+    --card-price-font-size: 1rem;
+    --feature-font-size: 0.9rem;
+    --button-font-size: 0.9rem;
+    --button-padding: 0.6rem 0.8rem;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 1rem;
+    flex: 1 1 100%; /* Ensure cards take full width on small screens */
+  }
+}
+
+/* Medium Devices (Tablets, 768px and down) */
+@media (max-width: var(--breakpoint-md)) {
+  :root {
+    --title-font-size: 2.2rem;
+    --subtitle-font-size: 1.1rem;
+    --card-title-font-size: 1.4rem;
+    --card-price-font-size: 1.1rem;
+    --feature-font-size: 1rem;
+    --button-font-size: 0.95rem;
+  }
+}

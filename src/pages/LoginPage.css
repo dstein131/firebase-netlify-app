@@ -1,0 +1,115 @@
+/* Root Variables */
+:root {
+    --text-color: rgba(255, 255, 255, 0.87);
+    --background-color: #242424;
+    --input-border-color: #646cff;
+    --button-bg-color: #535bf2;
+    --button-hover-bg-color: #4444e2;
+    --toggle-button-color: #ffffff;
+    --error-color: #ff4d4d; /* Red for error messages */
+    --user-info-color: #90ee90; /* Light green for user info */
+  }
+  
+  /* Page Container */
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 2rem;
+  }
+  
+  .login-page__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-color);
+  }
+  
+  /* Form Styles */
+  .login-page__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers all form elements */
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-page__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+  
+  .login-page__input:focus {
+    outline: none;
+    border-color: var(--button-bg-color);
+  }
+  
+  /* Button Styles */
+  .login-page__button {
+    width: 100%; /* Ensures the button is the same width as the inputs */
+    padding: 0.75rem 1rem;
+    margin-top: 1rem; /* Space between the button and the password input */
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .login-page__button:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  /* Toggle Button */
+  .login-page__toggle-button {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: var(--toggle-button-color);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .login-page__toggle-button:hover {
+    color: var(--button-bg-color);
+  }
+  
+  /* User Info */
+  .login-page__user-info {
+    font-size: 1.2rem;
+    color: var(--user-info-color);
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  /* Error Message */
+  .login-page__error {
+    margin-top: 1rem;
+    color: var(--error-color);
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  /* Description Section */
+.login-page__description {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+  }
+  
