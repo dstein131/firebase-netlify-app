@@ -1,5 +1,3 @@
-// src/components/NavBar.jsx
-
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,26 +18,31 @@ const NavBar = () => {
     <nav className="navbar">
       <h2 className="navbar__brand">CoffeeHouse</h2>
       <div className="navbar__links">
-        <Link to="/about" className="navbar__link">
-          About
-        </Link>
-        <Link to="/menu" className="navbar__link">
-          Menu
-        </Link>
-        <Link to="/contact" className="navbar__link">
-          Contact
-        </Link>
         {user ? (
           <>
+            <Link to="/dashboard" className="navbar__link">
+              Dashboard
+            </Link>
             <span className="navbar__user">Welcome, {user.email}</span>
             <button className="navbar__button" onClick={handleLogOut}>
               Log Out
             </button>
           </>
         ) : (
-          <Link to="/login" className="navbar__link">
-            Log In / Sign Up
-          </Link>
+          <>
+            <Link to="/about" className="navbar__link">
+              About
+            </Link>
+            <Link to="/menu" className="navbar__link">
+              Menu
+            </Link>
+            <Link to="/contact" className="navbar__link">
+              Contact
+            </Link>
+            <Link to="/login" className="navbar__link">
+              Log In / Sign Up
+            </Link>
+          </>
         )}
       </div>
     </nav>
