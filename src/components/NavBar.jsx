@@ -14,6 +14,10 @@ const NavBar = () => {
     navigate("/login");
   };
 
+  const handleLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar">
       <h2 className="navbar__brand">CoffeeHouse</h2>
@@ -40,9 +44,9 @@ const NavBar = () => {
             </button>
           </>
         ) : (
-          <Link to="/login" className="navbar__link">
+          <button className="navbar__button" onClick={handleLogin}>
             Log In / Sign Up
-          </Link>
+          </button>
         )}
       </div>
     </nav>
