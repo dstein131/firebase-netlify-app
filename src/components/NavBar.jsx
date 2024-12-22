@@ -20,7 +20,9 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <h2 className="navbar__brand">CoffeeHouse</h2>
+      <Link to="/" className="navbar__brand">
+        CoffeeHouse
+      </Link>
       <div className="navbar__links">
         <Link to="/about" className="navbar__link">
           About
