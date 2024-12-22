@@ -106,10 +106,90 @@
   }
   
   /* Description Section */
-.login-page__description {
+  .login-page__description {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 1rem;
     color: var(--text-color);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    /* Smaller devices (phones) */
+    :root {
+      --text-color: rgba(255, 255, 255, 0.87);
+      --background-color: #242424;
+      --input-border-color: #646cff;
+      --button-bg-color: #535bf2;
+      --button-hover-bg-color: #4444e2;
+      --toggle-button-color: #ffffff;
+      --error-color: #ff4d4d; /* Red for error messages */
+      --user-info-color: #90ee90; /* Light green for user info */
+    }
+  
+    .login-page__title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  
+    .login-page__description {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    .login-page__input {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+    }
+  
+    .login-page__button {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+    }
+  
+    .login-page__toggle-button {
+      font-size: 0.9rem;
+    }
+  
+    .login-page__user-info {
+      font-size: 1rem;
+    }
+  
+    .login-page__error {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Medium devices (tablets) */
+    .login-page__title {
+      font-size: 1.8rem;
+    }
+  
+    .login-page__description {
+      font-size: 1rem;
+    }
+  
+    .login-page__input {
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+    }
+  
+    .login-page__button {
+      font-size: 1rem;
+      padding: 0.7rem 1rem;
+    }
+  
+    .login-page__toggle-button {
+      font-size: 1rem;
+    }
+  
+    .login-page__user-info {
+      font-size: 1.1rem;
+    }
+  
+    .login-page__error {
+      font-size: 1rem;
+    }
   }
   
