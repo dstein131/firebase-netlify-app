@@ -1,195 +1,121 @@
-/* Root Variables */
-:root {
-    --text-color: rgba(255, 255, 255, 0.87);
-    --background-color: #242424;
-    --input-border-color: #646cff;
-    --button-bg-color: #535bf2;
-    --button-hover-bg-color: #4444e2;
-    --toggle-button-color: #ffffff;
-    --error-color: #ff4d4d; /* Red for error messages */
-    --user-info-color: #90ee90; /* Light green for user info */
+/* src/pages/LoginPage.css */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #fdf6e3; /* Light coffee color */
+  color: #333333;
+  padding: 2rem;
+}
+
+.login-page__description {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.login-page__form-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-page__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #6f4e37; /* Coffee brown color */
+}
+
+.login-page__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page__input {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #6f4e37;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-page__button {
+  padding: 0.75rem 1rem;
+  background-color: #6f4e37; /* Coffee brown color */
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-page__button:hover {
+  background-color: #8b5e3c;
+}
+
+.login-page__toggle-button {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #6f4e37;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.login-page__toggle-button:hover {
+  color: #8b5e3c;
+}
+
+.login-page__error {
+  margin-top: 1rem;
+  color: #ff4d4d; /* Red for errors */
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-page__redirect {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-page__redirect a {
+  color: #6f4e37;
+  text-decoration: none;
+}
+
+.login-page__redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+  .login-page__form-container {
+    padding: 1.5rem;
   }
-  
-  /* Page Container */
-  .login-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: 2rem;
-  }
-  
+
   .login-page__title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: var(--text-color);
+    font-size: 1.5rem;
   }
-  
-  /* Form Styles */
-  .login-page__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers all form elements */
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .login-page__input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--input-border-color);
-    border-radius: 5px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-size: 1rem;
-  }
-  
-  .login-page__input:focus {
-    outline: none;
-    border-color: var(--button-bg-color);
-  }
-  
-  /* Button Styles */
+
+  .login-page__input,
   .login-page__button {
-    width: 100%; /* Ensures the button is the same width as the inputs */
-    padding: 0.75rem 1rem;
-    margin-top: 1rem; /* Space between the button and the password input */
-    background-color: var(--button-bg-color);
-    color: var(--text-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
   }
-  
-  .login-page__button:hover {
-    background-color: var(--button-hover-bg-color);
+
+  .login-page__toggle-button,
+  .login-page__redirect {
+    font-size: 0.8rem;
   }
-  
-  /* Toggle Button */
-  .login-page__toggle-button {
-    margin-top: 1rem;
-    background: none;
-    border: none;
-    color: var(--toggle-button-color);
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-  }
-  
-  .login-page__toggle-button:hover {
-    color: var(--button-bg-color);
-  }
-  
-  /* User Info */
-  .login-page__user-info {
-    font-size: 1.2rem;
-    color: var(--user-info-color);
-    margin-top: 1rem;
-    text-align: center;
-  }
-  
-  /* Error Message */
-  .login-page__error {
-    margin-top: 1rem;
-    color: var(--error-color);
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  /* Description Section */
-  .login-page__description {
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--text-color);
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 576px) {
-    /* Smaller devices (phones) */
-    :root {
-      --text-color: rgba(255, 255, 255, 0.87);
-      --background-color: #242424;
-      --input-border-color: #646cff;
-      --button-bg-color: #535bf2;
-      --button-hover-bg-color: #4444e2;
-      --toggle-button-color: #ffffff;
-      --error-color: #ff4d4d; /* Red for error messages */
-      --user-info-color: #90ee90; /* Light green for user info */
-    }
-  
-    .login-page__title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-  
-    .login-page__description {
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-  
-    .login-page__input {
-      font-size: 0.9rem;
-      padding: 0.6rem 0.8rem;
-    }
-  
-    .login-page__button {
-      font-size: 0.9rem;
-      padding: 0.6rem 0.8rem;
-    }
-  
-    .login-page__toggle-button {
-      font-size: 0.9rem;
-    }
-  
-    .login-page__user-info {
-      font-size: 1rem;
-    }
-  
-    .login-page__error {
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    /* Medium devices (tablets) */
-    .login-page__title {
-      font-size: 1.8rem;
-    }
-  
-    .login-page__description {
-      font-size: 1rem;
-    }
-  
-    .login-page__input {
-      font-size: 1rem;
-      padding: 0.7rem 1rem;
-    }
-  
-    .login-page__button {
-      font-size: 1rem;
-      padding: 0.7rem 1rem;
-    }
-  
-    .login-page__toggle-button {
-      font-size: 1rem;
-    }
-  
-    .login-page__user-info {
-      font-size: 1.1rem;
-    }
-  
-    .login-page__error {
-      font-size: 1rem;
-    }
-  }
-  
+}

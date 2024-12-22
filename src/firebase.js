@@ -1,3 +1,5 @@
+// firebase.js is a file that initializes the Firebase SDK and exports the Firebase Authentication and Firestore instances.
+
 // Import the functions you need from the Firebase SDKs
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";

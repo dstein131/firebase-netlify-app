@@ -1,0 +1,31 @@
+.footer {
+    background-color: #6f4e37; /* Coffee brown color */
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+}
+
+.footer-content a {
+    color: #f4d03f; /* Highlight color for links */
+    text-decoration: none;
+    margin: 0 0.3rem;
+}
+
+.footer-content a:hover svg {
+    fill: #f4d03f; /* Highlight color on hover */
+}
+
+.footer-content svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff; /* Default icon color */
+    margin: 0 0.5rem;
+    transition: fill 0.3s ease;
+}

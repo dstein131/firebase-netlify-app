@@ -1,0 +1,42 @@
+/* src/pages/About.css */
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+    background-image: url("../assets/blurcoffee.jpg"); /* Use a relative path */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #6f4e37; /* Coffee brown color */
+    margin-bottom: 1rem;
+  }
+  
+  .about-description {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .about-mission {
+    font-size: 1.3rem;
+    color: #6f4e37;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+  
