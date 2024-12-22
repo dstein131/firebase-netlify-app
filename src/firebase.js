@@ -1,7 +1,9 @@
-// src/firebase.js
+// Import the functions you need from the Firebase SDKs
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
+// Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -15,12 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Test Firebase initialization
-try {
-  console.log("Firebase initialized with config:", firebaseConfig);
-} catch (error) {
-  console.error("Firebase initialization error:", error.message);
-}
-
+// Initialize Firebase Authentication and Firestore
 export const auth = getAuth(app);
+export const db = getFirestore(app); // Export Firestore instance
 export default app;
