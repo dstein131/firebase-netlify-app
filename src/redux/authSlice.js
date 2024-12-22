@@ -1,5 +1,3 @@
-// src/redux/authSlice.js
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { auth, db } from "../firebase";
 import {
@@ -18,17 +16,18 @@ export const signUpUser = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      const { uid, email: userEmail, phoneNumber } = userCredential.user;
 
       // Save user data to Firestore
-      await setDoc(doc(db, "Users", user.uid), {
-        uid: user.uid,
-        email: user.email,
-        phone: user.phoneNumber || null,
+      await setDoc(doc(db, "Users", uid), {
+        uid,
+        email: userEmail,
+        phone: phoneNumber || null,
         createdAt: new Date(),
       });
 
-      return user;
+      // Return a serializable user object
+      return { uid, email: userEmail, phone: phoneNumber };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -41,11 +40,10 @@ export const logInUser = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      const { uid, email: userEmail, phoneNumber } = userCredential.user;
 
-      // Optionally, fetch additional user data from Firestore if needed
-
-      return user;
+      // Return a serializable user object
+      return { uid, email: userEmail, phone: phoneNumber };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -71,7 +69,8 @@ export const listenToAuthChanges = createAsyncThunk(
         auth,
         (user) => {
           if (user) {
-            resolve(user);
+            const { uid, email, phoneNumber } = user;
+            resolve({ uid, email, phone: phoneNumber }); // Return a serializable object
           } else {
             resolve(null);
           }
