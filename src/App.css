@@ -1,15 +1,15 @@
 /* App.css */
 
-/* Font imports */
+/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&family=Great+Vibes&family=Amatic+SC:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
 
 :root {
-    /* Color palette */
+    /* Color Palette */
     --coffee-brown: #6f4e37;
     --cream: #f5f5dc;
     --dark-gray: #333333;
 
-    /* Font families */
+    /* Font Families */
     --primary-font: 'Roboto Slab', serif; /* Modern slab serif */
     --secondary-font: 'Open Sans', sans-serif; /* Clean and modern sans-serif font */
     --accent-font: 'Great Vibes', cursive; /* Elegant script font */
@@ -72,31 +72,161 @@ button:hover {
     background-color: var(--dark-gray);
 }
 
-/* General container padding for all pages */
+/* General Container Padding for All Pages */
 .container {
     padding: 1rem 0; /* Removed horizontal padding */
 }
 
 /* Flexbox Layout for App */
 .app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .content {
-  flex: 1;
-  padding: 0;
-  display: flex; /* Make .content a Flex container */
-  align-items: center; /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
+    flex: 1;
+    padding: 0;
+    /* Removed flex properties to allow individual pages to handle their own layout */
 }
 
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 1.5rem;
-  color: var(--coffee-brown);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: var(--coffee-brown);
+}
+
+/* ---------------------------
+   Blog Section Styles
+--------------------------- */
+
+/* Blogs Page Styles */
+.blogs-page {
+    padding: 2rem 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+    border-radius: 10px;
+}
+
+.blogs-page h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--coffee-brown);
+}
+
+.blogs-page .blog-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.blogs-page .blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blogs-page .blog-footer {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    text-align: right;
+}
+
+/* BlogPost Page Styles */
+.blogpost-page {
+    padding: 2rem 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly more opaque for better readability */
+    border-radius: 10px;
+}
+
+.blogpost-page h2 {
+    margin-bottom: 1rem;
+    color: var(--coffee-brown);
+}
+
+.blogpost-page .blog-meta {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.blogpost-page .blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--dark-gray);
+}
+
+.blogpost-page img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+}
+
+.blogpost-page .react-markdown {
+    /* Optional: Customize Markdown content */
+}
+
+/* Admin Blog Forms Styles */
+.blog-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blog-form h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--coffee-brown);
+}
+
+.blog-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.blog-form .btn-primary {
+    background-color: var(--coffee-brown);
+    border-color: var(--coffee-brown);
+}
+
+.blog-form .btn-primary:hover {
+    background-color: #ff5722;
+    border-color: #ff5722;
+}
+
+/* ---------------------------
+   Responsive Adjustments for Blogs
+--------------------------- */
+@media (max-width: 768px) {
+    .blogs-page, .blogpost-page {
+        padding: 1rem 0;
+    }
+
+    .blogs-page h2 {
+        font-size: 1.5rem;
+    }
+
+    .blogpost-page h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ---------------------------
+   Additional Styles
+--------------------------- */
+
+/* Navbar and Footer adjustments if needed */
+.navbar {
+    /* Add any additional navbar styles here */
+}
+
+.footer {
+    /* Add any additional footer styles here */
+}
+
+/* Loading Screen Styles */
+.loading {
+    /* Already defined above */
 }

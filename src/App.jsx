@@ -1,4 +1,3 @@
-// App.js
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +10,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
-import ProtectedRoute from "./components/ProtectedRoute";
+import Blogs from "./pages/Blogs"; // Blog Listing Component
+import BlogPost from "./pages/BlogPost"; // Single Blog Post Component
+import CreateBlog from "./pages/CreateBlog"; // Create Blog Component
+import ProtectedRoute from "./components/ProtectedRoute"; // For protected routes
 import "./App.css";
 
 const App = () => {
@@ -33,10 +35,13 @@ const App = () => {
         <NavBar />
         <main className="content">
           <Routes>
+            {/* Public Routes */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs" element={<Blogs />} /> {/* Blog Listing */}
+            <Route path="/blogs/:id" element={<BlogPost />} /> {/* Individual Blog Post */}
             <Route
               path="/login"
               element={!user ? <LoginPage /> : <Navigate to="/dashboard" />}
@@ -49,6 +54,16 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            {/* Protected Route for Creating Blog */}
+            <Route
+              path="/admin/create"
+              element={
+                <ProtectedRoute>
+                  <CreateBlog />
+                </ProtectedRoute>
+              }
+            />
+            {/* Fallback Route */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>

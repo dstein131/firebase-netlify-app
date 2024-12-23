@@ -35,6 +35,9 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/menu">
               Menu
             </Nav.Link>
+            <Nav.Link as={Link} to="/blogs">
+              Blogs
+            </Nav.Link> {/* Added Blogs link */}
             <Nav.Link as={Link} to="/contact">
               Contact
             </Nav.Link>
