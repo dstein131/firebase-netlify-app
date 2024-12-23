@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect className="custom-navbar">
+    <Navbar expand="lg" collapseOnSelect className="custom-navbar">
       <Container className="d-flex align-items-center">
         <Navbar.Brand as={Link} to="/" className="me-3">
           CoffeeHouse
