@@ -15,7 +15,6 @@
     margin-bottom: 2rem;
     text-align: center;
     font-family: var(--accent-font), cursive; /* Using the accent font for cursive style */
-    /* Removed background-color, padding, and border-radius */
     
     /* Added text-shadow for better contrast */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
@@ -41,11 +40,15 @@
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Added soft white glow */
+    filter: drop-shadow(0px 4px 6px rgba(255, 255, 255, 0.3));
 }
 
 .menu-item:hover {
     transform: scale(1.02); /* Slight zoom on hover for interactivity */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0px 6px 8px rgba(255, 255, 255, 0.5)); /* Enhance glow on hover */
 }
 
 .menu-item-overlay {
