@@ -20,12 +20,22 @@ const CreateBlog = () => {
       setError("Title and content are required.");
       return;
     }
+
+    if (!user || !user.username) {
+      setError("You must be logged in with a valid username to create a blog post.");
+      return;
+    }
+
     try {
+      // Extract relevant fields from the user object
+      const { uid, username, firstName = "Unknown", lastName = "User" } = user;
+
       await addDoc(collection(db, "blogs"), {
         title,
         content,
-        imageUrl,
-        author: user.email || "Unknown User", // Dynamically set the author
+        imageUrl: imageUrl || null,
+        author: `${firstName} ${lastName} (${username})`, // Create a display string for the author
+        uid, // Store the UID for reference
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });

@@ -6,28 +6,32 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 
 // Async Thunks
 
 // Sign Up User
 export const signUpUser = createAsyncThunk(
   "auth/signUpUser",
-  async ({ email, password }, thunkAPI) => {
+  async ({ email, password, firstName, lastName, username, phone }, thunkAPI) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const { uid, email: userEmail, phoneNumber } = userCredential.user;
+      const { uid, email: userEmail } = userCredential.user;
 
-      // Save user data to Firestore
-      await setDoc(doc(db, "Users", uid), {
+      const userData = {
         uid,
         email: userEmail,
-        phone: phoneNumber || null,
+        firstName: firstName || "Unknown",
+        lastName: lastName || "User",
+        username: username || "Anonymous",
+        phone: phone || null,
         createdAt: new Date(),
-      });
+      };
 
-      // Return a serializable user object
-      return { uid, email: userEmail, phone: phoneNumber };
+      // Save the user data in Firestore
+      await setDoc(doc(db, "users", uid), userData);
+
+      return userData;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -40,10 +44,15 @@ export const logInUser = createAsyncThunk(
   async ({ email, password }, thunkAPI) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const { uid, email: userEmail, phoneNumber } = userCredential.user;
+      const { uid } = userCredential.user;
 
-      // Return a serializable user object
-      return { uid, email: userEmail, phone: phoneNumber };
+      // Retrieve user data from Firestore
+      const userDoc = await getDoc(doc(db, "users", uid));
+      if (!userDoc.exists()) {
+        throw new Error("User data not found in Firestore.");
+      }
+
+      return userDoc.data();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -67,10 +76,20 @@ export const listenToAuthChanges = createAsyncThunk(
     return new Promise((resolve, reject) => {
       onAuthStateChanged(
         auth,
-        (user) => {
+        async (user) => {
           if (user) {
-            const { uid, email, phoneNumber } = user;
-            resolve({ uid, email, phone: phoneNumber }); // Return a serializable object
+            const { uid } = user;
+            try {
+              // Retrieve user data from Firestore
+              const userDoc = await getDoc(doc(db, "users", uid));
+              if (!userDoc.exists()) {
+                reject(new Error("User data not found in Firestore."));
+              } else {
+                resolve(userDoc.data());
+              }
+            } catch (error) {
+              reject(error);
+            }
           } else {
             resolve(null);
           }
@@ -94,9 +113,7 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    // Additional synchronous reducers if needed
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       // Sign Up
@@ -139,13 +156,16 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
       // Listen to Auth Changes
+      .addCase(listenToAuthChanges.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(listenToAuthChanges.fulfilled, (state, action) => {
-        state.user = action.payload;
         state.status = "succeeded";
+        state.user = action.payload;
       })
       .addCase(listenToAuthChanges.rejected, (state, action) => {
-        state.error = action.payload;
         state.status = "failed";
+        state.error = action.payload;
       });
   },
 });

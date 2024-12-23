@@ -1,5 +1,3 @@
-// src/pages/LoginPage.jsx
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpUser, logInUser } from "../redux/authSlice";
@@ -12,12 +10,25 @@ const LoginPage = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [phone, setPhone] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
 
   const handleAuth = (e) => {
     e.preventDefault();
     if (isSignUp) {
-      dispatch(signUpUser({ email, password }));
+      dispatch(
+        signUpUser({
+          email,
+          password,
+          firstName,
+          lastName,
+          username,
+          phone,
+        })
+      );
     } else {
       dispatch(logInUser({ email, password }));
     }
@@ -34,6 +45,41 @@ const LoginPage = () => {
       <div className="login-page__form-container">
         <h1 className="login-page__title">{isSignUp ? "Sign Up" : "Log In"}</h1>
         <form onSubmit={handleAuth} className="login-page__form">
+          {isSignUp && (
+            <>
+              <input
+                className="login-page__input"
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+              <input
+                className="login-page__input"
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+              <input
+                className="login-page__input"
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <input
+                className="login-page__input"
+                type="text"
+                placeholder="Phone Number (optional)"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </>
+          )}
           <input
             className="login-page__input"
             type="email"

@@ -56,7 +56,7 @@ const Blogs = () => {
               </Card.Body>
               <Card.Footer className="blog-footer">
                 <small>
-                  By {blog.author} on{" "}
+                  By {blog.author?.username || "Anonymous"} on{" "}
                   {blog.createdAt?.toDate().toLocaleDateString()}
                 </small>
               </Card.Footer>

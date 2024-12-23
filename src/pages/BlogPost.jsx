@@ -1,12 +1,11 @@
-// src/pages/BlogPost.js
-import React, { useEffect, useState } from 'react';
-import { db } from '../firebase';
-import { doc, getDoc } from 'firebase/firestore';
-import { useParams, Link } from 'react-router-dom';
-import { Container, Image, Button } from 'react-bootstrap';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import './BlogPost.css'; // Optional: Create a separate CSS file if preferred
+import React, { useEffect, useState } from "react";
+import { db } from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useParams, Link } from "react-router-dom";
+import { Container, Image, Button } from "react-bootstrap";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import "./BlogPost.css"; // Optional: Create a separate CSS file if preferred
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -16,15 +15,15 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const docRef = doc(db, 'blogs', id);
+        const docRef = doc(db, "blogs", id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setBlog({ id: docSnap.id, ...docSnap.data() });
         } else {
-          console.log('No such document!');
+          console.log("No such document!");
         }
       } catch (error) {
-        console.error('Error fetching blog:', error);
+        console.error("Error fetching blog:", error);
       } finally {
         setLoading(false);
       }
@@ -57,7 +56,8 @@ const BlogPost = () => {
     <Container className="blogpost-page my-5">
       <h2 className="mb-3">{blog.title}</h2>
       <p className="blog-meta">
-        By {blog.author} on {blog.createdAt?.toDate().toLocaleDateString()}
+        By {blog.author?.username || "Anonymous"} on{" "}
+        {blog.createdAt?.toDate().toLocaleDateString()}
       </p>
       {blog.imageUrl && (
         <Image src={blog.imageUrl} alt={blog.title} fluid className="mb-4" />
