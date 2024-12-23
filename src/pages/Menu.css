@@ -1,8 +1,8 @@
+/* src/pages/Menu.css */
+
 .menu-container {
-    padding: 2rem;
-    background-image: url("../assets/blurcoffee.jpg");
-    background-size: cover;
-    background-position: center;
+    padding: 2rem 1rem; /* Added horizontal padding for smaller screens */
+    background-color: transparent;
     min-height: 80vh;
     display: flex;
     flex-direction: column;
@@ -11,15 +11,19 @@
 
 .menu-title {
     font-size: 2.5rem;
-    color: #6f4e37;
+    color: #f1efed;
     margin-bottom: 2rem;
     text-align: center;
-    font-family: 'Merriweather', serif;
+    font-family: var(--accent-font), cursive; /* Using the accent font for cursive style */
+    /* Removed background-color, padding, and border-radius */
+    
+    /* Added text-shadow for better contrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .menu-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduced min-width for better mobile fit */
     gap: 1.5rem;
     width: 100%;
     max-width: 1200px;
@@ -31,15 +35,21 @@
     background-position: center;
     border-radius: 10px;
     overflow: hidden;
-    height: 250px;
+    aspect-ratio: 4 / 3; /* Replaced fixed height with aspect ratio */
     display: flex;
     align-items: flex-end;
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.02); /* Slight zoom on hover for interactivity */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .menu-item-overlay {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay */
+    background-color: rgba(0, 0, 0, 0.6); /* Reduced opacity for better image visibility */
     color: #ffffff;
     padding: 1rem;
     text-align: center;
@@ -51,34 +61,64 @@
     align-items: center;
 }
 
-
 .menu-item-name {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    font-family: 'Merriweather', serif;
+    font-family: var(--accent-font), cursive; /* Applying accent font for consistency */
 }
 
 .menu-item-description {
     font-size: 1rem;
     margin-bottom: 0.5rem;
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--secondary-font), sans-serif;
+    color: #f0f0f0; /* Lighter shade for better contrast */
 }
 
 .menu-item-price {
     font-size: 1.2rem;
     font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--secondary-font), sans-serif;
+    color: #f0f0f0; /* Lighter shade for better contrast */
 }
 
 /* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .menu-title {
+        font-size: 2.2rem;
+    }
+
+    .menu-items {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .menu-item-name {
+        font-size: 1.4rem;
+    }
+
+    .menu-item-description {
+        font-size: 0.95rem;
+        color: #e0e0e0; /* Slightly lighter on medium screens */
+    }
+
+    .menu-item-price {
+        font-size: 1.1rem;
+        color: #e0e0e0; /* Slightly lighter on medium screens */
+    }
+}
+
 @media (max-width: 768px) {
     .menu-title {
         font-size: 2rem;
     }
 
+    .menu-items {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+
     .menu-item {
-        height: 200px;
+        aspect-ratio: 3 / 4; /* Adjusted aspect ratio for portrait on smaller screens */
     }
 
     .menu-item-name {
@@ -87,9 +127,49 @@
 
     .menu-item-description {
         font-size: 0.9rem;
+        color: #d0d0d0; /* Even lighter on smaller screens */
     }
 
     .menu-item-price {
         font-size: 1rem;
+        color: #d0d0d0; /* Even lighter on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 1rem;
+    }
+
+    .menu-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-items {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 1rem;
+    }
+
+    .menu-item {
+        aspect-ratio: 2 / 3; /* Further adjusted aspect ratio */
+    }
+
+    .menu-item-overlay {
+        padding: 0.8rem;
+    }
+
+    .menu-item-name {
+        font-size: 1.2rem;
+    }
+
+    .menu-item-description {
+        font-size: 0.85rem;
+        color: #c0c0c0; /* Lightest shade on mobile */
+    }
+
+    .menu-item-price {
+        font-size: 0.95rem;
+        color: #c0c0c0; /* Lightest shade on mobile */
     }
 }

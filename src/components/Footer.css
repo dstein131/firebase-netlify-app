@@ -1,31 +1,91 @@
-.footer {
-    background-color: #6f4e37; /* Coffee brown color */
+/* Footer.css */
+
+/* ===============================
+   Footer Container
+   =============================== */
+
+   .footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
     color: #ffffff;
-    text-align: center;
     padding: 1rem 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    /* Removed fixed height to allow flexibility */
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure full width */
+    justify-content: center; /* Center content horizontally */
 }
 
-.footer-content p {
-    margin: 0.5rem 0;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Reduced width for better margins */
+    max-width: 1200px; /* Optional max-width for larger screens */
 }
 
-.footer-content a {
-    color: #f4d03f; /* Highlight color for links */
-    text-decoration: none;
-    margin: 0 0.3rem;
+.footer-left p,
+.footer-right p {
+    margin: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
 }
 
-.footer-content a:hover svg {
+.footer-right p {
+    gap: 0.5rem;
+}
+
+.social-icon {
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon svg {
+    width: 20px; /* Adjusted icon size */
+    height: 20px;
+    fill: #ffffff; /* Default icon color */
+    transition: fill 0.3s ease;
+}
+
+.social-icon:hover svg {
     fill: #f4d03f; /* Highlight color on hover */
 }
 
-.footer-content svg {
-    width: 24px;
-    height: 24px;
-    fill: #ffffff; /* Default icon color */
-    margin: 0 0.5rem;
-    transition: fill 0.3s ease;
+/* ===============================
+   Responsive Adjustments
+   =============================== */
+
+/* Mobile Devices */
+@media (max-width: 576px) {
+    .footer {
+        padding: 0.5rem 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .footer-right p {
+        justify-content: center;
+    }
+
+    .social-icon svg {
+        width: 18px; /* Smaller icons on mobile */
+        height: 18px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+    .footer {
+        padding: 0.8rem 0;
+    }
+
+    .social-icon svg {
+        width: 18px; /* Reduced size for tablets */
+        height: 18px;
+    }
 }

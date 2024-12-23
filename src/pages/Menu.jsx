@@ -1,3 +1,5 @@
+// src/pages/Menu.jsx
+
 import React from "react";
 import "./Menu.css";
 
@@ -25,7 +27,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <h1 className="menu-title">Our Menu</h1>
+      <h1 className="menu-title">Menu</h1>
       <div className="menu-items">
         {menuItems.map((item, index) => (
           <div
@@ -34,6 +36,8 @@ const Menu = () => {
             style={{
               backgroundImage: `url(${item.image})`,
             }}
+            role="img"
+            aria-label={`${item.name} - ${item.description}`}
           >
             <div className="menu-item-overlay">
               <h2 className="menu-item-name">{item.name}</h2>

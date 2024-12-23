@@ -1,21 +1,102 @@
-/* Font imports */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
+/* App.css */
 
-/* Root font families */
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&family=Great+Vibes&family=Amatic+SC:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
 :root {
-    --primary-font: 'Merriweather', serif; /* Serif font for headings */
-    --secondary-font: 'Open Sans', sans-serif; /* Sans-serif font for body text */
+    /* Color palette */
+    --coffee-brown: #6f4e37;
+    --cream: #f5f5dc;
+    --dark-gray: #333333;
+
+    /* Font families */
+    --primary-font: 'Roboto Slab', serif; /* Modern slab serif */
+    --secondary-font: 'Open Sans', sans-serif; /* Clean and modern sans-serif font */
+    --accent-font: 'Great Vibes', cursive; /* Elegant script font */
+    --decorative-font: 'Amatic SC', cursive; /* Artistic handwritten font */
+
+    /* Heights for NavBar and Footer */
+    --navbar-height: 60px;
+    --footer-height: 60px;
 }
 
-/* Default font styling */
-body {
-    font-family: var(--secondary-font);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html, #root {
+    height: 100%;
+    font-family: var(--primary-font);
+    color: var(--dark-gray);
+    background-color: var(--cream);
+    line-height: 1.6;
+    background-image: url('../src/assets/coffeeshop.jpeg'); /* Add background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--primary-font);
+    font-family: var(--accent-font), var(--primary-font);
+    color: var(--coffee-brown);
 }
 
-p, a, span, li, button {
+p, a, span, li {
+    font-family: var(--secondary-font), var(--decorative-font), sans-serif;
+    color: var(--dark-gray);
+}
+
+a {
+    text-decoration: none;
+    color: var(--coffee-brown);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--dark-gray);
+}
+
+button {
     font-family: var(--secondary-font);
+    background-color: var(--coffee-brown);
+    color: var(--cream);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dark-gray);
+}
+
+/* General container padding for all pages */
+.container {
+    padding: 1rem 0; /* Removed horizontal padding */
+}
+
+/* Flexbox Layout for App */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 0;
+  display: flex; /* Make .content a Flex container */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: var(--coffee-brown);
 }

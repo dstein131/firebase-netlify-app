@@ -1,3 +1,4 @@
+// App.js
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +23,7 @@ const App = () => {
   }, [dispatch]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (
@@ -30,7 +31,7 @@ const App = () => {
       <div className="app-container">
         {/* Navbar is displayed on all routes */}
         <NavBar />
-        <div className="content-wrapper">
+        <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -50,7 +51,7 @@ const App = () => {
             />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
-        </div>
+        </main>
         {/* Footer is displayed on all routes */}
         <Footer />
       </div>

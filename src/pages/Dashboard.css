@@ -6,10 +6,7 @@
     min-height: 80vh; /* Ensures it takes at least 80% of the viewport height */
     padding: 2rem;
     color: #333333;
-    background-color: #f9f9f9; /* Optional: Add a light background color for contrast */
-    background-image: url("../assets/blurcoffee.jpg"); /* Optional: Consistent background */
-    background-size: cover;
-    background-position: center;
+    background-color: transparent;
 }
 
 .dashboard-content {

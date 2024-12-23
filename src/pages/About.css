@@ -1,42 +1,111 @@
 /* src/pages/About.css */
 
+/* Container for the entire About section */
 .about-container {
+    padding: 2rem 1rem; /* Horizontal and vertical padding for spacing */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    padding: 2rem;
-    background-image: url("../assets/blurcoffee.jpg"); /* Use a relative path */
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .about-content {
-    max-width: 800px;
-    text-align: center;
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .about-title {
-    font-size: 2.5rem;
-    color: #6f4e37; /* Coffee brown color */
-    margin-bottom: 1rem;
-  }
-  
-  .about-description {
-    font-size: 1.2rem;
-    color: #333333;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-  }
-  
-  .about-mission {
-    font-size: 1.3rem;
-    color: #6f4e37;
-    font-weight: bold;
-    margin-top: 2rem;
-  }
-  
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    min-height: 80vh; /* Ensures the container takes up at least 80% of the viewport height */
+    background-color: transparent; /* Transparent background for a clean look */
+}
+
+/* Content box within the About section */
+.about-content {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for readability */
+    padding: 2rem; /* Internal padding for spacing */
+    border-radius: 10px; /* Rounded corners for a smooth look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    max-width: 800px; /* Limits the width for better readability */
+    width: 100%; /* Ensures the content takes full width within the container */
+}
+
+/* Title styling */
+.about-title {
+    font-family: var(--accent-font), cursive; /* Applies the elegant cursive font */
+    font-size: 3rem; /* Large font size for prominence */
+    color: var(--coffee-brown); /* Coffee brown color for consistency */
+    text-align: center; /* Centers the title */
+    margin-bottom: 1.5rem; /* Spacing below the title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for better contrast against the background */
+}
+
+/* Description paragraphs styling */
+.about-description {
+    font-family: var(--secondary-font), sans-serif; /* Clean and modern sans-serif font */
+    font-size: 1.2rem; /* Comfortable reading size */
+    color: var(--dark-gray); /* Dark shade for contrast against the semi-transparent background */
+    line-height: 1.6; /* Improves readability with adequate spacing between lines */
+    text-align: justify; /* Justifies the text for a neat block appearance */
+    margin-bottom: 1rem; /* Spacing between paragraphs */
+}
+
+/* Mission statement styling */
+.about-mission {
+    font-family: var(--secondary-font), sans-serif; /* Consistent font with descriptions */
+    font-size: 1.3rem; /* Slightly larger to emphasize the mission statement */
+    color: var(--dark-gray); /* Dark shade for contrast */
+    font-weight: bold; /* Makes the mission statement stand out */
+    text-align: center; /* Centers the mission statement */
+    margin-top: 1.5rem; /* Spacing above the mission statement */
+}
+
+/* Responsive Adjustments */
+
+/* Medium Screens (Tablets and small desktops) */
+@media (max-width: 1024px) {
+    .about-title {
+        font-size: 2.5rem; /* Slightly smaller for medium screens */
+    }
+
+    .about-description {
+        font-size: 1.1rem; /* Adjusts font size for readability */
+    }
+
+    .about-mission {
+        font-size: 1.2rem; /* Adjusts font size for consistency */
+    }
+}
+
+/* Small Screens (Tablets and large smartphones) */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2rem; /* Further reduces font size for smaller screens */
+    }
+
+    .about-content {
+        padding: 1.5rem; /* Reduces padding to maximize space */
+    }
+
+    .about-description {
+        font-size: 1rem; /* Adjusts font size for smaller screens */
+    }
+
+    .about-mission {
+        font-size: 1.1rem; /* Adjusts font size for consistency */
+    }
+}
+
+/* Extra Small Screens (Mobile Devices) */
+@media (max-width: 480px) {
+    .about-container {
+        padding: 1rem; /* Further reduces padding for mobile */
+    }
+
+    .about-title {
+        font-size: 1.8rem; /* Optimizes font size for mobile readability */
+        margin-bottom: 1rem; /* Reduces spacing below the title */
+    }
+
+    .about-content {
+        padding: 1rem; /* Minimizes padding to utilize screen space */
+    }
+
+    .about-description {
+        font-size: 0.9rem; /* Further reduces font size for mobile */
+    }
+
+    .about-mission {
+        font-size: 1rem; /* Adjusts font size for mobile */
+    }
+}

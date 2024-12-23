@@ -1,76 +1,60 @@
+/* src/pages/Home.css */
+
 .home-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-    padding: 2rem;
-    color: #ffffff;
-    background-image: url("../assets/blurcoffee.jpg"); /* Full page background */
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    height: 100%; /* Added to occupy full height */
+    display: flex; /* Added to enable Flexbox */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    padding: 0;
+    margin: 0;
+    background-color: transparent; /* Transparent background */
 }
 
 .home-content {
-    position: relative;
-    max-width: 600px;
+    /* Styling for the content card */
+    max-width: 800px; /* Maximum width for large screens */
+    width: 90%; /* Responsive width for smaller screens */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 400px; /* Fixed height for the card */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("../assets/machine.jpeg"); /* Background image for the card */
-    background-size: cover;
-    background-position: center;
+    background-color: #ffffff; /* White background for the card */
+    padding: 2rem; /* Inner spacing */
+    text-align: center; /* Center text inside the card */
+
+    /* Optional: Add transition for interactive elements */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.home-content-overlay {
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-    color: #ffffff; /* Light text color */
-    padding: 2rem;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.home-content:hover {
+    /* Slightly elevate the card on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .home-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    font-family: 'Merriweather', serif;
+    font-family: var(--accent-font); /* Elegant script font from App.css */
+    color: var(--coffee-brown); /* Coffee brown color from App.css */
 }
 
 .home-description {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--secondary-font); /* Clean sans-serif font from App.css */
+    color: var(--dark-gray); /* Dark gray color from App.css */
 }
 
-.home-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    animation: float 3s ease-in-out infinite;
+.home-mission {
+    font-size: 1.3rem;
+    color: var(--coffee-brown); /* Coffee brown color from App.css */
+    font-weight: bold;
+    margin-top: 2rem;
 }
 
-@keyframes float {
-    0% {
-        transform: translatey(0px);
-    }
-    50% {
-        transform: translatey(-10px);
-    }
-    100% {
-        transform: translatey(0px);
-    }
-}
+/* Responsive Adjustments */
 
 @media (max-width: 768px) {
     .home-title {
@@ -81,9 +65,8 @@
         font-size: 1rem;
     }
 
-    .home-image {
-        width: 80px;
-        height: 80px;
+    .home-content {
+        padding: 1.5rem;
     }
 }
 
@@ -96,8 +79,7 @@
         font-size: 0.9rem;
     }
 
-    .home-image {
-        width: 60px;
-        height: 60px;
+    .home-content {
+        padding: 1rem;
     }
 }

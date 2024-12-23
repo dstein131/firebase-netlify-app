@@ -6,9 +6,7 @@
     align-items: center;
     min-height: 80vh; /* Ensures it covers the full height of the viewport */
     padding: 2rem;
-    background-image: url("../assets/blurcoffee.jpg"); /* Use a relative path */
-    background-size: cover;
-    background-position: center;
+    background-color: transparent;
   }
   
   .contact-content {

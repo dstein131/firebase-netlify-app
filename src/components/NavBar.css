@@ -1,66 +1,138 @@
-.navbar {
+/* NavBar.css */
+
+/* Custom Navbar Container */
+.custom-navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #6f4e37; /* Coffee brown color */
-    padding: 1rem 2rem;
-    color: #ffffff;
+    padding: 0 1rem; /* Adjusted padding */
 }
 
-.navbar__brand {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.5rem;
+/* Navbar Brand Styling */
+.navbar-dark .navbar-brand {
+    font-family: var(--primary-font);
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #ffffff; /* Match the navbar color */
-    text-decoration: none; /* Remove the link look */
-    cursor: pointer; /* Indicate it's clickable */
-}
-
-.navbar__links {
+    color: #ffffff;
     display: flex;
     align-items: center;
+    margin: 0;
 }
 
-.navbar__link {
+/* Navigation Links Styling */
+.navbar-dark .navbar-nav .nav-link {
     color: #ffffff;
-    text-decoration: none;
     margin-right: 1rem;
     font-size: 1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
 }
 
-.navbar__link:hover {
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ff5722;
     text-decoration: underline;
 }
 
-.navbar__user {
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #ff5722;
+    font-weight: bold;
+}
+
+/* Greeting Text Styling */
+.navbar-dark .navbar-text {
+    color: #ffffff;
     margin-right: 1rem;
     font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
 }
 
-.navbar__button {
-    padding: 0.5rem 1rem;
-    background-color: #ff704d; /* Orange color */
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    cursor: pointer;
+/* Button Styling */
+.navbar-dark .btn-outline-light {
+    border-color: #ff704d;
+    color: #ff704d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
-    text-align: center;
 }
 
-.navbar__button:hover {
-    background-color: #ff5722; /* Darker orange */
+.navbar-dark .btn-outline-light:hover {
+    background-color: #ff5722;
+    border-color: #ff5722;
+    color: #ffffff;
 }
 
-/* Responsive Styles */
+/* Log Out Button Specific Styling */
+.navbar-dark .btn-outline-light.logout-btn {
+    border-color: #ff704d;
+    color: #ff704d;
+}
+
+.navbar-dark .btn-outline-light.logout-btn:hover {
+    background-color: #ff5722;
+    border-color: #ff5722;
+    color: #ffffff;
+}
+
+/* Responsive Adjustments */
+
+/* Extra Small Devices (Phones) */
 @media (max-width: 576px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    .navbar-dark .navbar-nav .nav-link {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
     }
 
-    .navbar__links {
-        margin-top: 0.5rem;
+    .navbar-dark .navbar-text {
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
     }
+
+    .navbar-dark .btn-outline-light {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .navbar-dark .btn-outline-light {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Navbar Toggle (Hamburger) Icon Styling */
+.navbar-dark .navbar-toggler {
+    border-color: #ff704d;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23ff704d' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Dropdown Menu Styling */
+.navbar-dark .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
+}
+
+.navbar-dark .dropdown-item {
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-dark .dropdown-item:hover,
+.navbar-dark .dropdown-item:focus {
+    background-color: #ff5722;
+    color: #ffffff;
 }
