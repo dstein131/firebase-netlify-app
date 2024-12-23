@@ -32,7 +32,7 @@ body, html, #root {
     color: var(--dark-gray);
     background-color: var(--cream);
     line-height: 1.6;
-    background-image: url('../src/assets/coffeeshop.jpeg'); /* Add background image */
+    background-image: url('../src/assets/coffee-bg13.jpg'); /* Add background image */
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
 }
