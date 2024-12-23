@@ -2,13 +2,13 @@
 
 .home-container {
     width: 100%;
-    height: 100%; /* Added to occupy full height */
-    display: flex; /* Added to enable Flexbox */
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
+    min-height: 80vh; /* Ensures the container occupies enough vertical space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0;
     margin: 0;
-    background-color: transparent; /* Transparent background */
+    background-color: transparent; /* Maintains a transparent background */
 }
 
 .home-content {
@@ -18,7 +18,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0.75); /* Semi-transparent white background for readability */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white background for readability */
     padding: 2rem; /* Inner spacing */
     text-align: center; /* Center text inside the card */
 
