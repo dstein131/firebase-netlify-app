@@ -3,19 +3,20 @@
 /* Custom Navbar Container */
 .custom-navbar {
     display: flex;
-    align-items: center;
+    align-items: center; /* Ensure vertical alignment */
     padding: 0 1rem; /* Adjusted padding */
 }
 
 /* Navbar Brand Styling */
 .navbar-dark .navbar-brand {
-    font-family: var(--primary-font);
+    font-family: var(--accent-font);
     font-size: 1.8rem;
     font-weight: bold;
     color: #ffffff;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertical alignment */
     margin: 0;
+    height: var(--navbar-height); /* Ensure consistent height alignment */
 }
 
 /* Navigation Links Styling */
@@ -25,8 +26,9 @@
     font-size: 1rem;
     transition: color 0.3s ease;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertical alignment */
     padding: 0.5rem 0;
+    height: var(--navbar-height); /* Ensure consistent height alignment */
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -46,8 +48,8 @@
     font-size: 1rem;
     font-weight: 500;
     display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
+    align-items: center; /* Vertical alignment */
+    height: var(--navbar-height); /* Ensure consistent height alignment */
 }
 
 /* Button Styling */
@@ -56,9 +58,10 @@
     color: #ff704d;
     transition: background-color 0.3s ease, color 0.3s ease;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertical alignment */
     padding: 0.4rem 0.8rem;
     font-size: 1rem;
+    height: var(--navbar-height); /* Ensure consistent height alignment */
 }
 
 .navbar-dark .btn-outline-light:hover {
